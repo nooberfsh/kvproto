@@ -88,6 +88,13 @@ const METHOD_TIKV_KV_RESOLVE_LOCK: ::grpcio::Method<super::kvrpcpb::ResolveLockR
     resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
 };
 
+const METHOD_TIKV_KV_BATCH_LOCK_RESOLVE: ::grpcio::Method<super::kvrpcpb::BatchLockResolveRequest, super::kvrpcpb::BatchLockResolveResponse> = ::grpcio::Method {
+    ty: ::grpcio::MethodType::Unary,
+    name: "/tikvpb.Tikv/KvBatchLockResolve",
+    req_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+    resp_mar: ::grpcio::Marshaller { ser: ::grpcio::pb_ser, de: ::grpcio::pb_de },
+};
+
 const METHOD_TIKV_KV_GC: ::grpcio::Method<super::kvrpcpb::GCRequest, super::kvrpcpb::GCResponse> = ::grpcio::Method {
     ty: ::grpcio::MethodType::Unary,
     name: "/tikvpb.Tikv/KvGC",
@@ -343,6 +350,22 @@ impl TikvClient {
         self.kv_resolve_lock_async_opt(req, ::grpcio::CallOption::default())
     }
 
+    pub fn kv_batch_lock_resolve_opt(&self, req: super::kvrpcpb::BatchLockResolveRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::kvrpcpb::BatchLockResolveResponse> {
+        self.client.unary_call(&METHOD_TIKV_KV_BATCH_LOCK_RESOLVE, req, opt)
+    }
+
+    pub fn kv_batch_lock_resolve(&self, req: super::kvrpcpb::BatchLockResolveRequest) -> ::grpcio::Result<super::kvrpcpb::BatchLockResolveResponse> {
+        self.kv_batch_lock_resolve_opt(req, ::grpcio::CallOption::default())
+    }
+
+    pub fn kv_batch_lock_resolve_async_opt(&self, req: super::kvrpcpb::BatchLockResolveRequest, opt: ::grpcio::CallOption) -> ::grpcio::ClientUnaryReceiver<super::kvrpcpb::BatchLockResolveResponse> {
+        self.client.unary_call_async(&METHOD_TIKV_KV_BATCH_LOCK_RESOLVE, req, opt)
+    }
+
+    pub fn kv_batch_lock_resolve_async(&self, req: super::kvrpcpb::BatchLockResolveRequest) -> ::grpcio::ClientUnaryReceiver<super::kvrpcpb::BatchLockResolveResponse> {
+        self.kv_batch_lock_resolve_async_opt(req, ::grpcio::CallOption::default())
+    }
+
     pub fn kv_gc_opt(&self, req: super::kvrpcpb::GCRequest, opt: ::grpcio::CallOption) -> ::grpcio::Result<super::kvrpcpb::GCResponse> {
         self.client.unary_call(&METHOD_TIKV_KV_GC, req, opt)
     }
@@ -534,6 +557,7 @@ pub trait Tikv {
     fn kv_batch_rollback(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::BatchRollbackRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::BatchRollbackResponse>);
     fn kv_scan_lock(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::ScanLockRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::ScanLockResponse>);
     fn kv_resolve_lock(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::ResolveLockRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::ResolveLockResponse>);
+    fn kv_batch_lock_resolve(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::BatchLockResolveRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::BatchLockResolveResponse>);
     fn kv_gc(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::GCRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::GCResponse>);
     fn kv_delete_range(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::DeleteRangeRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::DeleteRangeResponse>);
     fn raw_get(&self, ctx: ::grpcio::RpcContext, req: super::kvrpcpb::RawGetRequest, sink: ::grpcio::UnarySink<super::kvrpcpb::RawGetResponse>);
@@ -589,6 +613,10 @@ pub fn create_tikv<S: Tikv + Send + Clone + 'static>(s: S) -> ::grpcio::Service 
     let instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_TIKV_KV_RESOLVE_LOCK, move |ctx, req, resp| {
         instance.kv_resolve_lock(ctx, req, resp)
+    });
+    let instance = s.clone();
+    builder = builder.add_unary_handler(&METHOD_TIKV_KV_BATCH_LOCK_RESOLVE, move |ctx, req, resp| {
+        instance.kv_batch_lock_resolve(ctx, req, resp)
     });
     let instance = s.clone();
     builder = builder.add_unary_handler(&METHOD_TIKV_KV_GC, move |ctx, req, resp| {
