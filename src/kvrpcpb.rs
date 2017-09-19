@@ -7364,7 +7364,7 @@ impl ::protobuf::reflect::ProtobufValue for ResolveLockResponse {
 }
 
 #[derive(PartialEq,Clone,Default)]
-pub struct TxnStatus {
+pub struct Txn2Status {
     // message fields
     pub txn: u64,
     pub status: u64,
@@ -7374,20 +7374,20 @@ pub struct TxnStatus {
 }
 
 // see codegen.rs for the explanation why impl Sync explicitly
-unsafe impl ::std::marker::Sync for TxnStatus {}
+unsafe impl ::std::marker::Sync for Txn2Status {}
 
-impl TxnStatus {
-    pub fn new() -> TxnStatus {
+impl Txn2Status {
+    pub fn new() -> Txn2Status {
         ::std::default::Default::default()
     }
 
-    pub fn default_instance() -> &'static TxnStatus {
-        static mut instance: ::protobuf::lazy::Lazy<TxnStatus> = ::protobuf::lazy::Lazy {
+    pub fn default_instance() -> &'static Txn2Status {
+        static mut instance: ::protobuf::lazy::Lazy<Txn2Status> = ::protobuf::lazy::Lazy {
             lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const TxnStatus,
+            ptr: 0 as *const Txn2Status,
         };
         unsafe {
-            instance.get(TxnStatus::new)
+            instance.get(Txn2Status::new)
         }
     }
 
@@ -7438,7 +7438,7 @@ impl TxnStatus {
     }
 }
 
-impl ::protobuf::Message for TxnStatus {
+impl ::protobuf::Message for Txn2Status {
     fn is_initialized(&self) -> bool {
         true
     }
@@ -7522,12 +7522,12 @@ impl ::protobuf::Message for TxnStatus {
     }
 }
 
-impl ::protobuf::MessageStatic for TxnStatus {
-    fn new() -> TxnStatus {
-        TxnStatus::new()
+impl ::protobuf::MessageStatic for Txn2Status {
+    fn new() -> Txn2Status {
+        Txn2Status::new()
     }
 
-    fn descriptor_static(_: ::std::option::Option<TxnStatus>) -> &'static ::protobuf::reflect::MessageDescriptor {
+    fn descriptor_static(_: ::std::option::Option<Txn2Status>) -> &'static ::protobuf::reflect::MessageDescriptor {
         static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
             lock: ::protobuf::lazy::ONCE_INIT,
             ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
@@ -7537,16 +7537,16 @@ impl ::protobuf::MessageStatic for TxnStatus {
                 let mut fields = ::std::vec::Vec::new();
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
                     "txn",
-                    TxnStatus::get_txn_for_reflect,
-                    TxnStatus::mut_txn_for_reflect,
+                    Txn2Status::get_txn_for_reflect,
+                    Txn2Status::mut_txn_for_reflect,
                 ));
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
                     "status",
-                    TxnStatus::get_status_for_reflect,
-                    TxnStatus::mut_status_for_reflect,
+                    Txn2Status::get_status_for_reflect,
+                    Txn2Status::mut_status_for_reflect,
                 ));
-                ::protobuf::reflect::MessageDescriptor::new::<TxnStatus>(
-                    "TxnStatus",
+                ::protobuf::reflect::MessageDescriptor::new::<Txn2Status>(
+                    "Txn2Status",
                     fields,
                     file_descriptor_proto()
                 )
@@ -7555,7 +7555,7 @@ impl ::protobuf::MessageStatic for TxnStatus {
     }
 }
 
-impl ::protobuf::Clear for TxnStatus {
+impl ::protobuf::Clear for Txn2Status {
     fn clear(&mut self) {
         self.clear_txn();
         self.clear_status();
@@ -7563,13 +7563,13 @@ impl ::protobuf::Clear for TxnStatus {
     }
 }
 
-impl ::std::fmt::Debug for TxnStatus {
+impl ::std::fmt::Debug for Txn2Status {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
     }
 }
 
-impl ::protobuf::reflect::ProtobufValue for TxnStatus {
+impl ::protobuf::reflect::ProtobufValue for Txn2Status {
     fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
         ::protobuf::reflect::ProtobufValueRef::Message(self)
     }
@@ -7579,7 +7579,7 @@ impl ::protobuf::reflect::ProtobufValue for TxnStatus {
 pub struct BatchLockResolveRequest {
     // message fields
     pub context: ::protobuf::SingularPtrField<Context>,
-    pub txn2statusS: ::protobuf::RepeatedField<TxnStatus>,
+    pub txn2statusS: ::protobuf::RepeatedField<Txn2Status>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
     cached_size: ::protobuf::CachedSize,
@@ -7644,36 +7644,36 @@ impl BatchLockResolveRequest {
         &mut self.context
     }
 
-    // repeated .kvrpcpb.TxnStatus txn2statusS = 2;
+    // repeated .kvrpcpb.Txn2Status txn2statusS = 2;
 
     pub fn clear_txn2statusS(&mut self) {
         self.txn2statusS.clear();
     }
 
     // Param is passed by value, moved
-    pub fn set_txn2statusS(&mut self, v: ::protobuf::RepeatedField<TxnStatus>) {
+    pub fn set_txn2statusS(&mut self, v: ::protobuf::RepeatedField<Txn2Status>) {
         self.txn2statusS = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_txn2statusS(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
+    pub fn mut_txn2statusS(&mut self) -> &mut ::protobuf::RepeatedField<Txn2Status> {
         &mut self.txn2statusS
     }
 
     // Take field
-    pub fn take_txn2statusS(&mut self) -> ::protobuf::RepeatedField<TxnStatus> {
+    pub fn take_txn2statusS(&mut self) -> ::protobuf::RepeatedField<Txn2Status> {
         ::std::mem::replace(&mut self.txn2statusS, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_txn2statusS(&self) -> &[TxnStatus] {
+    pub fn get_txn2statusS(&self) -> &[Txn2Status] {
         &self.txn2statusS
     }
 
-    fn get_txn2statusS_for_reflect(&self) -> &::protobuf::RepeatedField<TxnStatus> {
+    fn get_txn2statusS_for_reflect(&self) -> &::protobuf::RepeatedField<Txn2Status> {
         &self.txn2statusS
     }
 
-    fn mut_txn2statusS_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
+    fn mut_txn2statusS_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<Txn2Status> {
         &mut self.txn2statusS
     }
 }
@@ -7788,7 +7788,7 @@ impl ::protobuf::MessageStatic for BatchLockResolveRequest {
                     BatchLockResolveRequest::get_context_for_reflect,
                     BatchLockResolveRequest::mut_context_for_reflect,
                 ));
-                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<TxnStatus>>(
+                fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<Txn2Status>>(
                     "txn2statusS",
                     BatchLockResolveRequest::get_txn2statusS_for_reflect,
                     BatchLockResolveRequest::mut_txn2statusS_for_reflect,
@@ -13955,14 +13955,14 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x04R\x0cstartVersion\x12%\n\x0ecommit_version\x18\x03\x20\x01(\x04R\rco\
     mmitVersion\"q\n\x13ResolveLockResponse\x121\n\x0cregion_error\x18\x01\
     \x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\
-    \x20\x01(\x0b2\x11.kvrpcpb.KeyErrorR\x05error\"5\n\tTxnStatus\x12\x10\n\
+    \x20\x01(\x0b2\x11.kvrpcpb.KeyErrorR\x05error\"6\n\nTxn2Status\x12\x10\n\
     \x03txn\x18\x01\x20\x01(\x04R\x03txn\x12\x16\n\x06status\x18\x02\x20\x01\
-    (\x04R\x06status\"{\n\x17BatchLockResolveRequest\x12*\n\x07context\x18\
-    \x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x124\n\x0btxn2statusS\
-    \x18\x02\x20\x03(\x0b2\x12.kvrpcpb.TxnStatusR\x0btxn2statusS\"v\n\x18Bat\
-    chLockResolveResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.e\
-    rrorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\x20\x01(\x0b2\x11.k\
-    vrpcpb.KeyErrorR\x05error\"V\n\tGCRequest\x12*\n\x07context\x18\x01\x20\
+    (\x04R\x06status\"|\n\x17BatchLockResolveRequest\x12*\n\x07context\x18\
+    \x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x125\n\x0btxn2statusS\
+    \x18\x02\x20\x03(\x0b2\x13.kvrpcpb.Txn2StatusR\x0btxn2statusS\"v\n\x18Ba\
+    tchLockResolveResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.\
+    errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\x20\x01(\x0b2\x11.\
+    kvrpcpb.KeyErrorR\x05error\"V\n\tGCRequest\x12*\n\x07context\x18\x01\x20\
     \x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x1d\n\nsafe_point\x18\x02\
     \x20\x01(\x04R\tsafePoint\"h\n\nGCResponse\x121\n\x0cregion_error\x18\
     \x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\
@@ -14020,7 +14020,7 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x04High\x10\x02*\x20\n\x0eIsolationLevel\x12\x06\n\x02SI\x10\0\x12\x06\
     \n\x02RC\x10\x01*.\n\x02Op\x12\x07\n\x03Put\x10\0\x12\x07\n\x03Del\x10\
     \x01\x12\x08\n\x04Lock\x10\x02\x12\x0c\n\x08Rollback\x10\x03B&\n\x18com.\
-    pingcap.tikv.kvproto\xd0\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01J\
+    pingcap.tikv.kvproto\xc8\xe2\x1e\x01\xd0\xe2\x1e\x01\xe0\xe2\x1e\x01J\
     \x9cc\n\x07\x12\x05\0\0\xbf\x02\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\
     \x08\n\x01\x02\x12\x03\x01\x08\x0f\n\t\n\x02\x03\0\x12\x03\x03\x07\x15\n\
     \t\n\x02\x03\x01\x12\x03\x04\x07\x16\n\t\n\x02\x03\x02\x12\x03\x05\x07\
@@ -14376,9 +14376,9 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x04\xba\x01#\n\r\n\x05\x04\x18\x02\x01\x06\x12\x04\xbb\x01\x04\x0c\n\r\
     \n\x05\x04\x18\x02\x01\x01\x12\x04\xbb\x01\r\x12\n\r\n\x05\x04\x18\x02\
     \x01\x03\x12\x04\xbb\x01\x15\x16\n\x0c\n\x02\x04\x19\x12\x06\xbe\x01\0\
-    \xc1\x01\x01\n\x0b\n\x03\x04\x19\x01\x12\x04\xbe\x01\x08\x11\n\x0c\n\x04\
+    \xc1\x01\x01\n\x0b\n\x03\x04\x19\x01\x12\x04\xbe\x01\x08\x12\n\x0c\n\x04\
     \x04\x19\x02\0\x12\x04\xbf\x01\x04\x13\n\x0f\n\x05\x04\x19\x02\0\x04\x12\
-    \x06\xbf\x01\x04\xbe\x01\x13\n\r\n\x05\x04\x19\x02\0\x05\x12\x04\xbf\x01\
+    \x06\xbf\x01\x04\xbe\x01\x14\n\r\n\x05\x04\x19\x02\0\x05\x12\x04\xbf\x01\
     \x04\n\n\r\n\x05\x04\x19\x02\0\x01\x12\x04\xbf\x01\x0b\x0e\n\r\n\x05\x04\
     \x19\x02\0\x03\x12\x04\xbf\x01\x11\x12\n\x0c\n\x04\x04\x19\x02\x01\x12\
     \x04\xc0\x01\x04\x16\n\x0f\n\x05\x04\x19\x02\x01\x04\x12\x06\xc0\x01\x04\
@@ -14390,10 +14390,10 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x06\xc4\x01\x08\xc3\x01!\n\r\n\x05\x04\x1a\x02\0\x06\x12\x04\xc4\x01\
     \x08\x0f\n\r\n\x05\x04\x1a\x02\0\x01\x12\x04\xc4\x01\x10\x17\n\r\n\x05\
     \x04\x1a\x02\0\x03\x12\x04\xc4\x01\x1a\x1b\n\x0c\n\x04\x04\x1a\x02\x01\
-    \x12\x04\xc5\x01\x08+\n\r\n\x05\x04\x1a\x02\x01\x04\x12\x04\xc5\x01\x08\
-    \x10\n\r\n\x05\x04\x1a\x02\x01\x06\x12\x04\xc5\x01\x11\x1a\n\r\n\x05\x04\
-    \x1a\x02\x01\x01\x12\x04\xc5\x01\x1b&\n\r\n\x05\x04\x1a\x02\x01\x03\x12\
-    \x04\xc5\x01)*\n\x0c\n\x02\x04\x1b\x12\x06\xc8\x01\0\xcb\x01\x01\n\x0b\n\
+    \x12\x04\xc5\x01\x08,\n\r\n\x05\x04\x1a\x02\x01\x04\x12\x04\xc5\x01\x08\
+    \x10\n\r\n\x05\x04\x1a\x02\x01\x06\x12\x04\xc5\x01\x11\x1b\n\r\n\x05\x04\
+    \x1a\x02\x01\x01\x12\x04\xc5\x01\x1c'\n\r\n\x05\x04\x1a\x02\x01\x03\x12\
+    \x04\xc5\x01*+\n\x0c\n\x02\x04\x1b\x12\x06\xc8\x01\0\xcb\x01\x01\n\x0b\n\
     \x03\x04\x1b\x01\x12\x04\xc8\x01\x08\x20\n\x0c\n\x04\x04\x1b\x02\0\x12\
     \x04\xc9\x01\x08'\n\x0f\n\x05\x04\x1b\x02\0\x04\x12\x06\xc9\x01\x08\xc8\
     \x01\"\n\r\n\x05\x04\x1b\x02\0\x06\x12\x04\xc9\x01\x08\x15\n\r\n\x05\x04\

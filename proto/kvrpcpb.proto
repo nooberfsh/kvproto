@@ -188,14 +188,14 @@ message ResolveLockResponse {
     KeyError error = 2;
 }
 
-message TxnStatus {
+message Txn2Status {
     uint64 txn = 1;
     uint64 status = 2;
 }
 
 message BatchLockResolveRequest {
 	Context context = 1;
-	repeated TxnStatus txn2statusS = 2;
+	repeated Txn2Status txn2statusS = 2;
 }
 
 message BatchLockResolveResponse {
