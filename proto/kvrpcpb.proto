@@ -195,7 +195,7 @@ message TxnStatus {
 
 message BatchLockResolveRequest {
 	Context context = 1;
-	repeated TxnStatus tx_2_status = 2;
+	repeated TxnStatus txn2statusS = 2;
 }
 
 message BatchLockResolveResponse {

@@ -7579,7 +7579,7 @@ impl ::protobuf::reflect::ProtobufValue for TxnStatus {
 pub struct BatchLockResolveRequest {
     // message fields
     pub context: ::protobuf::SingularPtrField<Context>,
-    pub tx_2_status: ::protobuf::RepeatedField<TxnStatus>,
+    pub txn2statusS: ::protobuf::RepeatedField<TxnStatus>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
     cached_size: ::protobuf::CachedSize,
@@ -7644,37 +7644,37 @@ impl BatchLockResolveRequest {
         &mut self.context
     }
 
-    // repeated .kvrpcpb.TxnStatus tx_2_status = 2;
+    // repeated .kvrpcpb.TxnStatus txn2statusS = 2;
 
-    pub fn clear_tx_2_status(&mut self) {
-        self.tx_2_status.clear();
+    pub fn clear_txn2statusS(&mut self) {
+        self.txn2statusS.clear();
     }
 
     // Param is passed by value, moved
-    pub fn set_tx_2_status(&mut self, v: ::protobuf::RepeatedField<TxnStatus>) {
-        self.tx_2_status = v;
+    pub fn set_txn2statusS(&mut self, v: ::protobuf::RepeatedField<TxnStatus>) {
+        self.txn2statusS = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_tx_2_status(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
-        &mut self.tx_2_status
+    pub fn mut_txn2statusS(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
+        &mut self.txn2statusS
     }
 
     // Take field
-    pub fn take_tx_2_status(&mut self) -> ::protobuf::RepeatedField<TxnStatus> {
-        ::std::mem::replace(&mut self.tx_2_status, ::protobuf::RepeatedField::new())
+    pub fn take_txn2statusS(&mut self) -> ::protobuf::RepeatedField<TxnStatus> {
+        ::std::mem::replace(&mut self.txn2statusS, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_tx_2_status(&self) -> &[TxnStatus] {
-        &self.tx_2_status
+    pub fn get_txn2statusS(&self) -> &[TxnStatus] {
+        &self.txn2statusS
     }
 
-    fn get_tx_2_status_for_reflect(&self) -> &::protobuf::RepeatedField<TxnStatus> {
-        &self.tx_2_status
+    fn get_txn2statusS_for_reflect(&self) -> &::protobuf::RepeatedField<TxnStatus> {
+        &self.txn2statusS
     }
 
-    fn mut_tx_2_status_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
-        &mut self.tx_2_status
+    fn mut_txn2statusS_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<TxnStatus> {
+        &mut self.txn2statusS
     }
 }
 
@@ -7685,7 +7685,7 @@ impl ::protobuf::Message for BatchLockResolveRequest {
                 return false;
             }
         };
-        for v in &self.tx_2_status {
+        for v in &self.txn2statusS {
             if !v.is_initialized() {
                 return false;
             }
@@ -7701,7 +7701,7 @@ impl ::protobuf::Message for BatchLockResolveRequest {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.context)?;
                 },
                 2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.tx_2_status)?;
+                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.txn2statusS)?;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -7719,7 +7719,7 @@ impl ::protobuf::Message for BatchLockResolveRequest {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         }
-        for value in &self.tx_2_status {
+        for value in &self.txn2statusS {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -7734,7 +7734,7 @@ impl ::protobuf::Message for BatchLockResolveRequest {
             os.write_raw_varint32(v.get_cached_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
-        for v in &self.tx_2_status {
+        for v in &self.txn2statusS {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
             os.write_raw_varint32(v.get_cached_size())?;
             v.write_to_with_cached_sizes(os)?;
@@ -7789,9 +7789,9 @@ impl ::protobuf::MessageStatic for BatchLockResolveRequest {
                     BatchLockResolveRequest::mut_context_for_reflect,
                 ));
                 fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<TxnStatus>>(
-                    "tx_2_status",
-                    BatchLockResolveRequest::get_tx_2_status_for_reflect,
-                    BatchLockResolveRequest::mut_tx_2_status_for_reflect,
+                    "txn2statusS",
+                    BatchLockResolveRequest::get_txn2statusS_for_reflect,
+                    BatchLockResolveRequest::mut_txn2statusS_for_reflect,
                 ));
                 ::protobuf::reflect::MessageDescriptor::new::<BatchLockResolveRequest>(
                     "BatchLockResolveRequest",
@@ -7806,7 +7806,7 @@ impl ::protobuf::MessageStatic for BatchLockResolveRequest {
 impl ::protobuf::Clear for BatchLockResolveRequest {
     fn clear(&mut self) {
         self.clear_context();
-        self.clear_tx_2_status();
+        self.clear_txn2statusS();
         self.unknown_fields.clear();
     }
 }
@@ -13957,32 +13957,32 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\
     \x20\x01(\x0b2\x11.kvrpcpb.KeyErrorR\x05error\"5\n\tTxnStatus\x12\x10\n\
     \x03txn\x18\x01\x20\x01(\x04R\x03txn\x12\x16\n\x06status\x18\x02\x20\x01\
-    (\x04R\x06status\"y\n\x17BatchLockResolveRequest\x12*\n\x07context\x18\
-    \x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x122\n\x0btx_2_status\
-    \x18\x02\x20\x03(\x0b2\x12.kvrpcpb.TxnStatusR\ttx2Status\"v\n\x18BatchLo\
-    ckResolveResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.error\
-    pb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\x20\x01(\x0b2\x11.kvrpc\
-    pb.KeyErrorR\x05error\"V\n\tGCRequest\x12*\n\x07context\x18\x01\x20\x01(\
-    \x0b2\x10.kvrpcpb.ContextR\x07context\x12\x1d\n\nsafe_point\x18\x02\x20\
-    \x01(\x04R\tsafePoint\"h\n\nGCResponse\x121\n\x0cregion_error\x18\x01\
-    \x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\
-    \x20\x01(\x0b2\x11.kvrpcpb.KeyErrorR\x05error\"M\n\rRawGetRequest\x12*\n\
-    \x07context\x18\x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\
-    \x10\n\x03key\x18\x02\x20\x01(\x0cR\x03key\"o\n\x0eRawGetResponse\x121\n\
-    \x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\
-    \x12\x14\n\x05error\x18\x02\x20\x01(\tR\x05error\x12\x14\n\x05value\x18\
-    \x03\x20\x01(\x0cR\x05value\"c\n\rRawPutRequest\x12*\n\x07context\x18\
-    \x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x10\n\x03key\x18\
-    \x02\x20\x01(\x0cR\x03key\x12\x14\n\x05value\x18\x03\x20\x01(\x0cR\x05va\
-    lue\"Y\n\x0eRawPutResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\
-    \x0e.errorpb.ErrorR\x0bregionError\x12\x14\n\x05error\x18\x02\x20\x01(\t\
-    R\x05error\"P\n\x10RawDeleteRequest\x12*\n\x07context\x18\x01\x20\x01(\
-    \x0b2\x10.kvrpcpb.ContextR\x07context\x12\x10\n\x03key\x18\x02\x20\x01(\
-    \x0cR\x03key\"\\\n\x11RawDeleteResponse\x121\n\x0cregion_error\x18\x01\
-    \x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12\x14\n\x05error\x18\
-    \x02\x20\x01(\tR\x05error\"v\n\x12DeleteRangeRequest\x12*\n\x07context\
-    \x18\x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x1b\n\tstart_\
-    key\x18\x02\x20\x01(\x0cR\x08startKey\x12\x17\n\x07end_key\x18\x03\x20\
+    (\x04R\x06status\"{\n\x17BatchLockResolveRequest\x12*\n\x07context\x18\
+    \x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x124\n\x0btxn2statusS\
+    \x18\x02\x20\x03(\x0b2\x12.kvrpcpb.TxnStatusR\x0btxn2statusS\"v\n\x18Bat\
+    chLockResolveResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.e\
+    rrorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\x02\x20\x01(\x0b2\x11.k\
+    vrpcpb.KeyErrorR\x05error\"V\n\tGCRequest\x12*\n\x07context\x18\x01\x20\
+    \x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x1d\n\nsafe_point\x18\x02\
+    \x20\x01(\x04R\tsafePoint\"h\n\nGCResponse\x121\n\x0cregion_error\x18\
+    \x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12'\n\x05error\x18\
+    \x02\x20\x01(\x0b2\x11.kvrpcpb.KeyErrorR\x05error\"M\n\rRawGetRequest\
+    \x12*\n\x07context\x18\x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\
+    \x12\x10\n\x03key\x18\x02\x20\x01(\x0cR\x03key\"o\n\x0eRawGetResponse\
+    \x121\n\x0cregion_error\x18\x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregi\
+    onError\x12\x14\n\x05error\x18\x02\x20\x01(\tR\x05error\x12\x14\n\x05val\
+    ue\x18\x03\x20\x01(\x0cR\x05value\"c\n\rRawPutRequest\x12*\n\x07context\
+    \x18\x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x10\n\x03key\
+    \x18\x02\x20\x01(\x0cR\x03key\x12\x14\n\x05value\x18\x03\x20\x01(\x0cR\
+    \x05value\"Y\n\x0eRawPutResponse\x121\n\x0cregion_error\x18\x01\x20\x01(\
+    \x0b2\x0e.errorpb.ErrorR\x0bregionError\x12\x14\n\x05error\x18\x02\x20\
+    \x01(\tR\x05error\"P\n\x10RawDeleteRequest\x12*\n\x07context\x18\x01\x20\
+    \x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x10\n\x03key\x18\x02\x20\
+    \x01(\x0cR\x03key\"\\\n\x11RawDeleteResponse\x121\n\x0cregion_error\x18\
+    \x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12\x14\n\x05error\
+    \x18\x02\x20\x01(\tR\x05error\"v\n\x12DeleteRangeRequest\x12*\n\x07conte\
+    xt\x18\x01\x20\x01(\x0b2\x10.kvrpcpb.ContextR\x07context\x12\x1b\n\tstar\
+    t_key\x18\x02\x20\x01(\x0cR\x08startKey\x12\x17\n\x07end_key\x18\x03\x20\
     \x01(\x0cR\x06endKey\"^\n\x13DeleteRangeResponse\x121\n\x0cregion_error\
     \x18\x01\x20\x01(\x0b2\x0e.errorpb.ErrorR\x0bregionError\x12\x14\n\x05er\
     ror\x18\x02\x20\x01(\tR\x05error\"o\n\x0eRawScanRequest\x12*\n\x07contex\
@@ -14020,7 +14020,7 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \x04High\x10\x02*\x20\n\x0eIsolationLevel\x12\x06\n\x02SI\x10\0\x12\x06\
     \n\x02RC\x10\x01*.\n\x02Op\x12\x07\n\x03Put\x10\0\x12\x07\n\x03Del\x10\
     \x01\x12\x08\n\x04Lock\x10\x02\x12\x0c\n\x08Rollback\x10\x03B&\n\x18com.\
-    pingcap.tikv.kvproto\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01J\
+    pingcap.tikv.kvproto\xd0\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01J\
     \x9cc\n\x07\x12\x05\0\0\xbf\x02\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\
     \x08\n\x01\x02\x12\x03\x01\x08\x0f\n\t\n\x02\x03\0\x12\x03\x03\x07\x15\n\
     \t\n\x02\x03\x01\x12\x03\x04\x07\x16\n\t\n\x02\x03\x02\x12\x03\x05\x07\
