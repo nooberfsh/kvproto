@@ -188,9 +188,14 @@ message ResolveLockResponse {
     KeyError error = 2;
 }
 
+message TxnStatus {
+    uint64 txn = 1;
+    uint64 status = 2;
+}
+
 message BatchLockResolveRequest {
 	Context context = 1;
-	repeated KvPair pairs = 2;
+	repeated TxnStatus tx_2_status = 2;
 }
 
 message BatchLockResolveResponse {
